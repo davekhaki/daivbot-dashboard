@@ -3,5 +3,35 @@
     ViewData["Title"] = "Music";
 }
 
+<link rel="stylesheet" href="~/css/modules.css" />
+
 <h1>Music</h1>
+<button class="accordion">Show Commands</button>
+<div class="panel">
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                Play
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                Join
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="accordion">Audit Logs</button>
+<div class="panel">
+    <p>show changes made through the dashboard</p>
+</div>
 
