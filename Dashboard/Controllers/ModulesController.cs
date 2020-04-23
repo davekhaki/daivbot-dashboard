@@ -17,5 +17,26 @@ namespace Dashboard.Controllers
         {
             return View();
         }
+        public IActionResult Information()
+        {
+            return View();
+        }
+        public IActionResult Currency()
+        {
+            return View();
+        }
+        public IActionResult Minigames()
+        {
+            return View();
+        }
+        public IActionResult Music()
+        {
+            return View();
+        }
+        public IActionResult Statistics()
+        {
+            return View();
+        }
+
     }
 }
