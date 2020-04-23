@@ -1,0 +1,43 @@
+﻿/* Modules index page styles
+---------------------------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+.card {
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+    }
+
+.module-button {
+    padding: 10px;
+    text-align: center;
+    background-color: #6699ff;
+}
