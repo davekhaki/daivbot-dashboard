@@ -2,51 +2,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-<head>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .column {
-            float: left;
-            width: 25%;
-            padding: 0 10px;
-            -webkit-transition: 0.3s;
-            transition: 0.3s;
-        }
-
-        .row {
-            margin: 0 -5px;
-        }
-
-            .row:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-        .card {
-            
-            padding: 16px;
-            text-align: center;
-            background-color: #f1f1f1;
-        }
-            .card:hover {
-                box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
-            }
-
-        .module-button {
-            padding: 10px;
-            text-align: center;
-            background-color: #6699ff;
-        }
-    </style>
-</head>
+<link rel="stylesheet" href="~/css/modules-index.css"/>
 <body>
     <h1>Modules</h1>
     <div class="row">
@@ -62,35 +18,35 @@
             <div class="card">
                 <h3 class="module-name">Information</h3>
                 <h5 class="module-desc">This modules allows you to see all sorts of cool information.</h5>
-                <input class="module-button" type="button" value="View Module" />
+                <input class="module-button" type="button" value="View Module" onclick="window.location='@Url.Action("information", "modules")'"/>
             </div>
         </div>
         <div class="column">
             <div class="card">
                 <h3 class="module-name">Currency</h3>
                 <h5 class="module-desc">This modules allows you to control a global virtual currency within the bot.</h5>
-                <input class="module-button" type="button" value="View Module" />
+                <input class="module-button" type="button" value="View Module" onclick="window.location='@Url.Action("currency", "modules")'" />
             </div>
         </div>
         <div class="column">
             <div class="card">
                 <h3 class="module-name">Minigames</h3>
                 <h5 class="module-desc">This modules contains many funny minigames you can play within your server!</h5>
-                <input class="module-button" type="button" value="View Module" />
+                <input class="module-button" type="button" value="View Module" onclick="window.location='@Url.Action("minigames", "modules")'" />
             </div>
         </div>
         <div class="column">
             <div class="card">
                 <h3 class="module-name">Music</h3>
                 <h5 class="module-desc">This modules allows you to listen to music with your friends while in a voice chat.</h5>
-                <input class="module-button" type="button" value="View Module" />
+                <input class="module-button" type="button" value="View Module" onclick="window.location='@Url.Action("music", "modules")'" />
             </div>
         </div>
         <div class="column">
             <div class="card">
                 <h3 class="module-name">Statistics</h3>
                 <h5 class="module-desc">This modules allows you to check your stats from your favourite games!</h5>
-                <input class="module-button" type="button" value="View Module" />
+                <input class="module-button" type="button" value="View Module" onclick="window.location='@Url.Action("statistics", "modules")'" />
             </div>
         </div>
     </div>
