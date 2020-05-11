@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using MySql.Data.MySqlClient;
 
 namespace Dashboard.Controllers
 {
@@ -34,6 +36,11 @@ namespace Dashboard.Controllers
             return View();
         }
         public IActionResult Statistics()
+        {
+            return View();
+        }
+
+        public IActionResult Testpage()
         {
             return View();
         }
