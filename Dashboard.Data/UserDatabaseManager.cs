@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Dashboard.Data
 {
@@ -10,23 +11,25 @@ namespace Dashboard.Data
         {
             List<User> users = new List<User>();
 
-            using(SqlConnection conn = new SqlConnection(ConfigClass.connectionString))
+            using (SqlConnection conn = new SqlConnection(ConfigClass.connectionString))
             {
-                using(SqlCommand query = new SqlCommand("select * from [dbo].[user]", conn))
+                using SqlCommand query = new SqlCommand("select * from [dbo].[user]", conn);
+                conn.Open();
+
+                var reader = query.ExecuteReader();
+                while (reader.Read())
                 {
-                    conn.Open();
-
-                    var reader = query.ExecuteReader();
-                    while (reader.Read())
+                    User usr = new User
                     {
-                        User usr = new User();
-                        usr.id = reader.GetInt32(0);
-                        usr.username = reader.GetString(1);
-                        usr.password = reader.GetString(2);
+                        Id = reader.GetInt32(0),
+                        Username = reader.GetString(1),
+                        Password = reader.GetString(2),
+                        Email = reader.GetString(3)
+                    };
 
-                        users.Add(usr);
-                    }
+                    users.Add(usr);
                 }
+                conn.Close();
             }
             return users;
         }

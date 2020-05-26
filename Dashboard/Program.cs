@@ -16,14 +16,6 @@ namespace Dashboard
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            UserDatabaseManager userDbMan = new UserDatabaseManager();
-
-            var users = userDbMan.GetAllUsers();
-
-            foreach(var user in users)
-            {
-                System.Diagnostics.Debug.WriteLine(user);
-            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -1,15 +1,72 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model LoginViewModel
+@using Dashboard.Models
 
-
-<div class="text-center">
-    <h1 class="display-4">Daivbot</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<div>
-    @for (int index = 0; index < 12; index++)
-    {
-        <div>@index </div>
+<style>
+    .dropbtn {
+        background-color: black;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
     }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
+<h1 class="display-4">Daivbot</h1>
+<div class="dropdown">
+    <button class="dropbtn">Stats</button>
+    <div class="dropdown-content">
+        <p>@ViewBag.Counter</p>
+    </div>
 </div>
+@if (Model != null)
+{
+    if(Model.Username != null)
+    {
+        <p>@Model.Username</p>
+    }
+}
+
+
+
+
+
+
+
+
+
+

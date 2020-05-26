@@ -69,9 +69,19 @@
                                 <a asp-area="" asp-controller="modules" asp-action="statistics">Statistics</a>
                             </div>
                         </li>
-                        <li class="nav-item-rightside">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="login">Login</a>
-                        </li>
+                        @if (Model == null)
+                        {
+                            <li class="nav-item-rightside">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="login">Login</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item-rightside">
+                                <p class="nav-link text-dark">@Model.Username</p>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
