@@ -5,28 +5,24 @@
 }
 <link rel="stylesheet" href="~/css/login.css" />
 
-    <h1>Login</h1 >
-    
-    <form class="login-form" method="post">
-        <div class="form-group">
-            <label asp-for="Username"></label>
-            <input asp-for="Username" class="form-control" />
-            <span asp-validation-for="Username"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Password"></label>
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password"></span>
-        </div>
-        <button type="submit" class="login-button" onClick="alert('Successfully logged in');"> Login</button>
-     
-        <div class="container register">
-            <p>Don't have an account yet? <a asp-controller="home" asp-action="register">Sign Up</a>.</p>
-        </div>
+<h1>Login</h1>
+@Html.Raw(TempData["loginfailmsg"])
 
-        @if (Model != null)
-        {
-            <h2>@Model.Username</h2>
-        }
-    </form>
+<form class="login-form" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <button type="submit" class="login-button"> Login</button>
+
+    <div class="container register">
+        <p>Don't have an account yet? <a asp-controller="home" asp-action="register">Sign Up</a>.</p>
+    </div>
+</form>
 

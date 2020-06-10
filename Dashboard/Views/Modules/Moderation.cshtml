@@ -1,92 +1,96 @@
 ﻿
+@model ModerationViewModel
 @{
     ViewData["Title"] = "Moderation";
 }
+<style>
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+
+
+
 <link rel="stylesheet" href="~/css/modules.css" />
-
 <h1>Moderation</h1>
-<button class="accordion">Show Commands</button>
-<div class="panel">
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                Ban
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
+@*<button id="modal-btn">Save Changes</button>*@
+@*<div id="save-modal" class="modal">
+    <div class="modal-content">
+        <span id="close">&times;</span>
+        <form>
+            <div class="form-group">
+                <label asp-for="ServerId">Server ID</label>
+                <input asp-for="ServerId" />
+                <span asp-validation-for="ServerId"></span>
             </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Unban
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" />
+                <span asp-validation-for="Password"></span>
             </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Kick
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Mute
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Unmute
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Lock
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Giverole
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
-        <div class="column">
-            <div class="card">
-                Purge
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
+            <button type="submit">Update settings</button>
+        </form>
     </div>
-</div>
+</div>*@
 
-<button class="accordion">Audit Logs</button>
-<div class="panel">
-    <p>show changes made through the dashboard</p>
-</div>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Status">Module</label>
+        <input asp-for="Status" class="form-control" type="checkbox"/>
+        <span asp-validation-for="Status"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ServerId">Server ID</label>
+        <input asp-for="ServerId" class="form-control"/>
+        <span asp-validation-for="ServerId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <button type="submit">Update Settings</button>
+</form>
+
+
+
+
+
+
 
 
 

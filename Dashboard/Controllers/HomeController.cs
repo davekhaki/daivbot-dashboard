@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using Dashboard.Core;
 using Dashboard.Core.Constants;
 using System.Collections;
+using System.Web;
 
 namespace Dashboard.Controllers
 {
@@ -40,23 +41,18 @@ namespace Dashboard.Controllers
             HttpContext.Session.SetInt32(CounterConstants.CounterName, newValue);
             return newValue;
         }
-        
-        private LoginViewModel DisplayUsername()
-        {
-            LoginViewModel TempViewModel = new LoginViewModel();
-            TempViewModel.Username = HttpContext.Session.GetString("username");
-            return TempViewModel;
-        }
 
         public IActionResult Index()
         {
+            TempData["omg"] = HttpContext.Session.GetString("username");
             ViewBag.Counter = IncreaseCounter();
-            return View(DisplayUsername());
+            return View();
         }
 
         public IActionResult Privacy()
         {
-            return View(DisplayUsername());
+            TempData["omg"] = HttpContext.Session.GetString("username");
+            return View();
         }
 
         [HttpPost]
@@ -106,12 +102,18 @@ namespace Dashboard.Controllers
                     viewModel.Username = username;
                     HttpContext.Session.SetString("username", username);
 
+                    TempData["loginmsg"] = UserConstants.LoginSuccessMsg;
                     return View("Index", viewModel);
                 }
-                else return RedirectToAction("Index", "Modules");
+                else
+                {
+                    TempData["loginfailmsg"] = UserConstants.LoginFailMsg;
+                    return RedirectToAction("Login", "Home");
+                }
             }
             conn.Close();
-            return RedirectToAction("Index", "Home");
+            TempData["loginfailmsg"] = UserConstants.LoginFailMsg;
+            return RedirectToAction("Login", "Home");
         }
 
         public IActionResult Login()
@@ -131,7 +133,7 @@ namespace Dashboard.Controllers
             {
                 return RedirectToAction("Login");
             }
-            return View(DisplayUsername());
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

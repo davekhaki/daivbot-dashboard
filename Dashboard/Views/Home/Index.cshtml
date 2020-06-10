@@ -2,7 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 @model LoginViewModel
-@using Dashboard.Models
 
 <style>
     .dropbtn {
@@ -53,9 +52,11 @@
         <p>@ViewBag.Counter</p>
     </div>
 </div>
+@Html.Raw(TempData["loginmsg"])
+@Html.Raw(TempData["UpdateSuccess"])
 @if (Model != null)
 {
-    if(Model.Username != null)
+    if (Model.Username != null)
     {
         <p>@Model.Username</p>
     }
