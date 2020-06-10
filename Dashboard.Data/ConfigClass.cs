@@ -8,6 +8,6 @@ namespace Dashboard.Data
     {
         //class for the config of the data layer
 
-        public static string connectionString = "Server=mssql.fhict.local;Database=dbi434661;User Id=dbi434661;Password=daivbot;";
+        public static string connectionString = "Server=daivbot.database.windows.net;Database=daivbot;User Id=daivbot;Password=DeadSilence0;";
     }
 }
