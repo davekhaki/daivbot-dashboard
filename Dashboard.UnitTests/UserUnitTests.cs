@@ -18,7 +18,7 @@ namespace Dashboard.UnitTests
 
             List<User> users = userDbMan.GetAllUsers().ToList();
 
-            Assert.AreEqual("ID: 1, username: theusername, password: thepassword, email: firstemail@gmail.com", users[0].ToString());
+            Assert.AreEqual("ID: 1, username: username, password: password, email: email", users[0].ToString());
         }
 
         [TestMethod]
